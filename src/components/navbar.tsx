@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 import { CommandPalette } from "@/components/command-palette";
 
 const links = [
@@ -16,6 +16,11 @@ const links = [
 export function Navbar() {
   const pathname = usePathname();
   const [searchOpen, setSearchOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -69,8 +74,42 @@ export function Navbar() {
                 </li>
               );
             })}
+            <li className="sm:hidden">
+              <button
+                onClick={() => setMenuOpen((prev) => !prev)}
+                className="text-muted hover:text-foreground transition-colors duration-200"
+                aria-label="Toggle menu"
+              >
+                {menuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </li>
           </ul>
         </nav>
+
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div className="sm:hidden border-t border-[rgba(255,255,255,0.06)] bg-[#000]/95 backdrop-blur-md">
+            <ul className="max-w-2xl mx-auto px-6 py-4 space-y-3">
+              {links.map((link) => {
+                const isActive =
+                  pathname === link.href ||
+                  (link.href === "/blog" && pathname.startsWith("/blog"));
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className={`block text-sm py-1 transition-colors duration-200 ${
+                        isActive ? "text-foreground" : "text-muted hover:text-foreground"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
       </header>
 
       <CommandPalette open={searchOpen} onClose={() => setSearchOpen(false)} />

@@ -45,7 +45,7 @@ export function BlogPreview({ posts }: { posts: BlogPost[] }) {
                   href={`/blog/${post.slug}`}
                   className="group block py-4 border-b border-[rgba(255,255,255,0.05)] last:border-0"
                 >
-                  <div className="flex items-baseline justify-between gap-4">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4">
                     <h3 className="font-medium text-foreground group-hover:text-accent transition-colors duration-200">
                       {post.title}
                     </h3>

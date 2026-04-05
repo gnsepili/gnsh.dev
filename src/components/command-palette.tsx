@@ -167,7 +167,7 @@ export function CommandPalette({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.96 }}
             transition={{ duration: 0.15, ease: [0.23, 1, 0.32, 1] }}
-            className="fixed top-[20%] left-1/2 -translate-x-1/2 z-50 w-full max-w-md"
+            className="fixed top-[20%] left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4 sm:px-0"
           >
             <div className="bg-[#111] border border-[rgba(255,255,255,0.08)] rounded-xl overflow-hidden shadow-2xl">
               {/* Input */}

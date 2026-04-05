@@ -36,7 +36,7 @@ export function About() {
         transition={{ duration: 0.6 }}
       >
         {/* Identity block */}
-        <div className="flex items-center gap-5 mb-10">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 mb-10">
           {/* Circular avatar placeholder — replace src with your photo */}
           <div className="relative w-20 h-20 rounded-full overflow-hidden bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)] shrink-0">
             <Image

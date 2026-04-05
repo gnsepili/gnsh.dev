@@ -36,7 +36,7 @@ export function Newsletter() {
             Thanks for subscribing. Stay tuned.
           </p>
         ) : (
-          <form onSubmit={handleSubmit} className="flex gap-3 max-w-sm">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-sm">
             <input
               type="email"
               value={email}

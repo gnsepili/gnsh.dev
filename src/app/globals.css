@@ -143,6 +143,20 @@ html {
   margin: 2.5rem 0;
 }
 
+/* Mobile: prevent horizontal overflow */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Touch-friendly tap targets */
+@media (max-width: 640px) {
+  a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

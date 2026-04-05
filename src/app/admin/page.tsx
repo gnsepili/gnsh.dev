@@ -6,7 +6,36 @@ export default function AdminPage() {
   useEffect(() => {
     (async () => {
       const CMS = (await import("decap-cms-app")).default;
-      CMS.init();
+      CMS.init({
+        config: {
+          backend: {
+            name: "github",
+            repo: "gnsepili/gnsh.dev",
+            branch: "main",
+            base_url: "https://gnsh.dev",
+            auth_endpoint: "/api/auth",
+          },
+          media_folder: "public/uploads",
+          public_folder: "/uploads",
+          collections: [
+            {
+              name: "blog",
+              label: "Blog",
+              folder: "content/blog",
+              create: true,
+              slug: "{{slug}}",
+              extension: "md",
+              fields: [
+                { label: "Title", name: "title", widget: "string" },
+                { label: "Description", name: "description", widget: "string" },
+                { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false },
+                { label: "Tags", name: "tags", widget: "list" },
+                { label: "Body", name: "body", widget: "markdown" },
+              ],
+            },
+          ],
+        },
+      });
     })();
   }, []);
 
