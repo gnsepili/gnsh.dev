@@ -34,7 +34,7 @@ Also, because they processed sequentially, they were **slow**. You couldn't para
 1. They process all words in a sentence **simultaneously** (in parallel).
 2. They use a mechanism called **Attention** that lets every word directly "look at" every other word, regardless of distance.
 
-![](/uploads/gemini_generated_image_br7tribr7tribr7t.png)
+![](/uploads/gemini_generated_image_u4nwafu4nwafu4nw.png)
 
 <img alt="A side-by-side diagram comparing RNN sequential processing (words flowing one by one through a chain of boxes, with a fading arrow showing memory loss over distance) versus Transformer parallel processing (all words connected to each other simultaneously via attention lines). Clean, minimal technical illustration style with labeled arrows." />
 
